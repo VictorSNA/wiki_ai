@@ -1,0 +1,9 @@
+#!/bin/bash
+
+# Script para iniciar o RAG app com Ollama via Docker Compose
+
+echo "🔄 Construindo os containers..."
+docker-compose build
+
+echo "🚀 Iniciando os containers..."
+docker-compose up
