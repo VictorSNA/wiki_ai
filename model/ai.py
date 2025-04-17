@@ -10,17 +10,19 @@ from langchain.embeddings import OpenAIEmbeddings
 from langchain_text_splitters import RecursiveCharacterTextSplitter
 from langchain.schema import Document
 from typing import List
-from bs4 import BeautifulSoup
 import nest_asyncio
 import asyncio
 from urllib.parse import urljoin, urlparse
 from playwright.async_api import async_playwright
+from dotenv import load_dotenv
 
 # CONFIGURAÇÕES
-MODEL = "mistral"
-OLLAMA_URL = "http://localhost:11434/api/generate"
+MODEL = "mistral:latest"
+OLLAMA_URL = "http://ollama:11434/api/generate"
 BASE_URL = "https://victorsna.github.io"
 START_PATH = "/wiki_ai/#/"
+
+load_dotenv()
 
 # Interface personalizada
 st.set_page_config(page_title="RAG com LLM Local", layout="wide")

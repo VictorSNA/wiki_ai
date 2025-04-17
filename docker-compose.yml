@@ -1,5 +1,3 @@
-version: '3.8'
-
 services:
   ollama:
     image: ollama/ollama
@@ -8,7 +6,10 @@ services:
       - "11434:11434"
     volumes:
       - ollama-data:/root/.ollama
+      - ./entrypoint.sh:/entrypoint.sh
     restart: unless-stopped
+    pull_policy: always
+    entrypoint: ["/usr/bin/bash", "/entrypoint.sh"]
 
   rag-app:
     build: .

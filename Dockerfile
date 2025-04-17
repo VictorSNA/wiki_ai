@@ -1,6 +1,6 @@
 # Dockerfile para app Streamlit + LangChain + Playwright
 
-FROM python:3.10-slim
+FROM python:3.13-slim
 
 # Evita prompts do Playwright
 ENV PLAYWRIGHT_BROWSERS_PATH=/ms-playwright
@@ -18,7 +18,11 @@ RUN pip install --no-cache-dir \
     faiss-cpu \
     langchain-text-splitters \
     playwright \
-    nest_asyncio
+    nest_asyncio \
+    langchain-community \
+    python-dotenv \
+    openai \
+    tiktoken
 
 # Instala os navegadores do Playwright
 RUN python -m playwright install --with-deps
